@@ -1,2 +1,3 @@
 # Projet_Cesi_Poo_Game-Of-Life
-Projet
+Projet POO : le jeu de la vie 
+
