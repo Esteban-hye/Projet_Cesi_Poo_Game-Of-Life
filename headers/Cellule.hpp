@@ -5,6 +5,7 @@ class Cellule {
     bool vivant;
     int x;
     int y;
+    Regle* regle;
 
     public :
     Cellule(int x, int y, bool vivant);
@@ -12,5 +13,7 @@ class Cellule {
     virtual ~Cellule();
     int GetX() const;
     int GetY() const;
+    void SetRegle(Regle* regle);
+    virtual Cellule CalculerProchainEtat(int VoisinsVivants) = 0;
 
 };
