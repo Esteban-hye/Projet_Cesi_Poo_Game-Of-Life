@@ -1,4 +1,4 @@
-#include "../headers/Grille.hpp"
+#include "../headers/Grid.hpp"
 
 
 
@@ -9,14 +9,14 @@
 
 
 
-void Grille::Maj() {
+void Grid::Maj() {
     CalculerGen();
 }
 
-int Grille::GetL(){
+int Grid::GetL(){
     return longeur;
 }
 
-int Grille::Getl(){
+int Grid::Getl(){
     return largeur;
 }

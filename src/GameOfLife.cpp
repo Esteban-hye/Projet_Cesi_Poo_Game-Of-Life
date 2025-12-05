@@ -1,28 +1,28 @@
-#include "../headers/JeuDeLaVie.hpp"
+#include "../headers/GameOfLife.hpp"
 #include <fstream>
 #include <iostream>
 #include <thread>
 #include <chrono>
 
 
-JeuDeLaVie::JeuDeLaVie(const std::string& fichier, bool mode)
-    : grille(nullptr), interface(nullptr), nbIteration(0),
+GameOfLife::GameOfLife(const std::string& fichier, bool mode)
+    : Grid(nullptr), interface(nullptr), nbIteration(0),
       Mode(mode), fichier(fichier)
 {
 }
 
 
-JeuDeLaVie::~JeuDeLaVie()
+GameOfLife::~GameOfLife()
 {
-    delete grille;
+    delete Grid;
     delete interface;
 }
 
 
-void JeuDeLaVie::Init()
+void GameOfLife::Init()
 {
-    if (!grille)
-        grille = new Grille();
+    if (!Grid)
+        Grid = new Grid();
 
     if (!fichier.empty())
         ChargerFichier();
@@ -32,7 +32,7 @@ void JeuDeLaVie::Init()
 }
 
 
-void JeuDeLaVie::ExeConsole()
+void GameOfLife::ExeConsole()
 {
     Init();
 
@@ -42,9 +42,9 @@ void JeuDeLaVie::ExeConsole()
     {
         system("clear"); 
 
-        interface->AfficherConsole(*grille);
+        interface->AfficherConsole(*Grid);
 
-        grille->MettreAJour(); 
+        Grid->MettreAJour(); 
 
         std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
@@ -53,23 +53,23 @@ void JeuDeLaVie::ExeConsole()
 }
 
 
-void JeuDeLaVie::ExeGraphique() {
+void GameOfLife::ExeGraphique() {
     Init();
 
     interface->WindowsOpen();
 
      while (interface->WindowsOpen()) {
 
-        interface->ShowGrid(grille);
+        interface->ShowGrid(Grid);
 
-        grille->Update();
+        Grid->Update();
 
         sf::sleep(sf::milliseconds(100));
 } }
 
 
 
-void JeuDeLaVie::ChargerFichier()
+void GameOfLife::ChargerFichier()
 {
     std::ifstream in(fichier);
 
@@ -88,9 +88,9 @@ void JeuDeLaVie::ChargerFichier()
         for (char c : ligne)
         {
             if (c == '1')
-                grille->SetCelluleVivante(x, y, true);
+                Grid->SetCelluleVivante(x, y, true);
             else
-                grille->SetCelluleVivante(x, y, false);
+                Grid->SetCelluleVivante(x, y, false);
 
             y++;
         }
@@ -102,7 +102,7 @@ void JeuDeLaVie::ChargerFichier()
 
 
 
-void JeuDeLaVie::SaveFichier()
+void GameOfLife::SaveFichier()
 {
     std::ofstream out("save.txt");
 
@@ -112,11 +112,11 @@ void JeuDeLaVie::SaveFichier()
         return;
     }
 
-    for (int i = 0; i < grille->GetLargeur(); i++)
+    for (int i = 0; i < Grid->GetLargeur(); i++)
     {
-        for (int j = 0; j < grille->GetHauteur(); j++)
+        for (int j = 0; j < Grid->GetHauteur(); j++)
         {
-            out << (grille->GetCellule(i, j).EstVivant() ? '1' : '0');
+            out << (Grid->GetCellule(i, j).EstVivant() ? '1' : '0');
         }
         out << "\n";
     }

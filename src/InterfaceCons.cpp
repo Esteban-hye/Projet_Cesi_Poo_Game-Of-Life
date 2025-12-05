@@ -1,10 +1,10 @@
 #include "../headers/InterfaceCons.hpp"
 #include <iostream>
 
-void InterfaceCons::ShowGrid(Grille* grille) {
-    for (int y = 0; y < grille->GetLongeur(); ++y) {
-        for (int x = 0; x < grille->GetLargeur(); ++x) {
-            std::cout << (grille->GetCellule(x, y)->EstVivant() ? "O" : ".");
+void InterfaceCons::ShowGrid(Grid* Grid) {
+    for (int y = 0; y < Grid->GetLongeur(); ++y) {
+        for (int x = 0; x < Grid->GetLargeur(); ++x) {
+            std::cout << (Grid->GetCellule(x, y)->EstVivant() ? "O" : ".");
         }
         std::cout << "\n";
     }

@@ -8,7 +8,7 @@ SFML = -lsfml-graphics -lsfml-window -lsfml-system
 # --- Fichiers sources communs ---
 SRCS_COMMON = \
     src/main.cpp \
-    src/Grille.cpp \
+    src/Grid.cpp \
     src/Cellule.cpp \
     src/CelluleVivante.cpp \
     src/CelluleMorte.cpp \

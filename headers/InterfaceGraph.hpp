@@ -12,7 +12,7 @@ private:
 public:
     InterfaceGraph(int l, int h, int cellSize = 10);
 
-    void ShowGrid(Grille* grille) override;
+    void ShowGrid(Grid* Grid) override;
     bool WindowsOpen() override;
 };
 

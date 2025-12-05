@@ -7,7 +7,7 @@ class InterfaceCons : public Interface {
 public:
     InterfaceCons() = default;
 
-    void ShowGrid(Grille* grille) override;
+    void ShowGrid(Grid* Grid) override;
     bool WindowsOpen() override;
 };
 

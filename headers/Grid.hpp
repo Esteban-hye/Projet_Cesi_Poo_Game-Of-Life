@@ -4,7 +4,7 @@
 
 
 
-class Grille {
+class Grid {
     private :
     Cellule** cellules;
     int largeur;
@@ -13,8 +13,8 @@ class Grille {
 
     public :
 
-    Grille(int largeur, int longeur);
-    ~Grille();
+    Grid(int largeur, int longeur);
+    ~Grid();
 
 
     Cellule* GetCellule(int x,int y) const;

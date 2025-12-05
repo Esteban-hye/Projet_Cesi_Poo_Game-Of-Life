@@ -1,11 +1,11 @@
 #pragma once
-#include "Grille.hpp"
+#include "Grid.hpp"
 #include "Interface.hpp"
 #include <string>
 
-class JeuDeLaVie{
+class GameOfLife{
     private:
-    Grille* grille;
+    Grid* Grid;
     Interface* interface;
     int nbIteration;
     bool Mode;
@@ -13,8 +13,8 @@ class JeuDeLaVie{
 
     public :
 
-    JeuDeLaVie(const std::string& fichier, bool Mode);
-    ~JeuDeLaVie();
+    GameOfLife(const std::string& fichier, bool Mode);
+    ~GameOfLife();
     void Init();
     void ExeConsole();
     void ExeGraphique();

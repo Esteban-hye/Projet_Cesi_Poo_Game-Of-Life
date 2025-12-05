@@ -1,7 +1,7 @@
 #include "../headers/InterfaceGraph.hpp"
 
 InterfaceGraph::InterfaceGraph(int l, int h, int cellSize)
-    : window(sf::VideoMode(l * cellSize, h * cellSize), "Jeu de la Vie"),
+    : window(sf::VideoMode(l * cellSize, h * cellSize), "Game of Life"),
       cellSize(cellSize)
 {}
 
@@ -14,15 +14,15 @@ bool InterfaceGraph::WindowsOpen() {
     return window.isOpen();
 }
 
-void InterfaceGraph::ShowGrid(Grille* grille) {
+void InterfaceGraph::ShowGrid(Grid* Grid) {
 
     window.clear();
     sf::RectangleShape cell(sf::Vector2f(cellSize - 1.0f, cellSize - 1.0f));
 
-    for (int x = 0; x < grille->GetLargeur(); ++x) {
-        for (int y = 0; y < grille->GetLongeur(); ++y) {
+    for (int x = 0; x < Grid->GetLargeur(); ++x) {
+        for (int y = 0; y < Grid->GetLongeur(); ++y) {
 
-            if (grille->GetCellule(x, y)->EstVivant()) {
+            if (Grid->GetCellule(x, y)->EstVivant()) {
                 cell.setPosition(x * cellSize, y * cellSize);
                 window.draw(cell);
             }

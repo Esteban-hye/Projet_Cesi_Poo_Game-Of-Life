@@ -1,14 +1,13 @@
 #ifndef INTERFACE_HPP
 #define INTERFACE_HPP
 
-#include "Grille.hpp"
+#include "Grid.hpp"
 
 class Interface {
 public:
     virtual ~Interface() = default;
 
-    // Méthodes abstraites
-    virtual void ShowGrid(Grille* grille) = 0;
+    virtual void ShowGrid(Grid* Grid) = 0;
     virtual bool WindowsOpen() = 0;
 };
 
