@@ -16,4 +16,6 @@ int Cellule::GetY() const {
     return x;
 }
 
-
+void Cellule::SetRegle(Regle* regle){
+    this->regle = regle;
+}
