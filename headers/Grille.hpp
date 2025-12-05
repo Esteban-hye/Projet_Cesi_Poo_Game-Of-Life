@@ -27,6 +27,6 @@ class Grille {
     int GetLongeur() const;
 
     void AddCvivant(Cellule* cellule);
-    void SuppCmort(cellule* cellule);
+    void SuppCmort(Cellule* cellule);
 
 };

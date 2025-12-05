@@ -1,4 +1,4 @@
-#include "../Headers/JeuDeLaVie.hpp"
+#include "../headers/JeuDeLaVie.hpp"
 #include <fstream>
 #include <iostream>
 #include <thread>

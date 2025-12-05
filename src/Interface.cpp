@@ -2,6 +2,7 @@
 
 Interface::Interface(int l, int h, int cellSize)
     : window(sf::VideoMode(l * cellSize, h * cellSize), "Jeu de la Vie"),
+
       cellSize(cellSize)
 {}
 

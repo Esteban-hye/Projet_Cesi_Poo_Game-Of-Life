@@ -6,7 +6,7 @@
 
 class Interface {
 private:
-    sf::RenderWindow window;
+    sf::RenderWindow window;  
     int cellSize;
 
 public:
