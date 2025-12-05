@@ -1,27 +1,71 @@
-<<<<<<< HEAD
 #include <iostream>
-=======
+#include <vector>
+#include <cstdlib>
+#include <ctime>
 
->>>>>>> 3505bc405206df4c1f09f32b690e8fcc6c04412e
-
-
-
-
-
+#include "InterfaceCons.hpp"
 #include "InterfaceGraph.hpp"
-// ou : #include "InterfaceCons.hpp"
 
-int main() {
-    Grille grille(50, 50);
+// ---------------------------------------------------------
+// Grille factice MINIMALE pour tester l'interface
+// ---------------------------------------------------------
+class FakeCell {
+public:
+    bool vivant;
+    FakeCell(bool v = false) : vivant(v) {}
+    bool EstVivant() const { return vivant; }
+};
 
-    Interface* ui = new InterfaceGraph(50, 50);
-    // Interface* ui = new InterfaceCons();
+class FakeGrille {
+private:
+    int largeur;
+    int hauteur;
+    std::vector<std::vector<FakeCell>> cells;
 
-    while (ui->WindowsOpen()) {
-        ui->ShowGrid(&grille);
-        grille.Evoluer();  // Exemple
+public:
+    FakeGrille(int w, int h) : largeur(w), hauteur(h) {
+        cells.resize(h, std::vector<FakeCell>(w));
+        for (int y = 0; y < h; ++y)
+            for (int x = 0; x < w; ++x)
+                cells[y][x] = FakeCell(rand() % 2);
     }
 
-    delete ui;
+    int GetLargeur() const { return largeur; }
+    int GetLongeur() const { return hauteur; }
+    FakeCell* GetCellule(int x, int y) { return &cells[y][x]; }
+};
+// ---------------------------------------------------------
+
+int main() {
+    srand(time(nullptr));
+
+    std::cout << "Choisir interface :" << std::endl;
+    std::cout << "1 - Console" << std::endl;
+    std::cout << "2 - Graphique" << std::endl;
+    std::cout << "Votre choix : ";
+
+    int choix;
+    std::cin >> choix;
+
+    FakeGrille grille(30, 20); // petite grille de test
+
+    Interface* interface = nullptr;
+
+    if (choix == 1) {
+        interface = new InterfaceCons();
+    } 
+    else if (choix == 2) {
+        interface = new InterfaceGraph(30, 20, 20);
+    }
+    else {
+        std::cout << "Choix invalide.\n";
+        return 0;
+    }
+
+    while (interface->WindowsOpen()) {
+        interface->ShowGrid(reinterpret_cast<Grille*>(&grille));
+    }
+
+    delete interface;
     return 0;
 }
