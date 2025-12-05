@@ -1,9 +1,10 @@
 #pragma once
 #include "JeuDeLaVie.hpp"
+#include <string>
 
 class fichier{
     public : 
-    ChargerGrille(std::string& fichier);
-    SauvegarderGrille(std::string& fichier,Grille*);
+    static grille* ChargerGrille(std::string& fichier);
+    void SauvegarderGrille(std::string& fichier,Grille*) grille;
 
 };

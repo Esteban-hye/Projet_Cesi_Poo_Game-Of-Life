@@ -1,3 +1,4 @@
-#include "..headers/Regle.hpp"
+#include "../headers/Regle.hpp"
 
-Regle::~Regle(){}
+Regle::~Regle(){}*
+
