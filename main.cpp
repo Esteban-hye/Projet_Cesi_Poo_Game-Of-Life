@@ -7,4 +7,21 @@
 
 
 
-#include "../headers/JeuDeLaVie.hpp"
+
+#include "InterfaceGraph.hpp"
+// ou : #include "InterfaceCons.hpp"
+
+int main() {
+    Grille grille(50, 50);
+
+    Interface* ui = new InterfaceGraph(50, 50);
+    // Interface* ui = new InterfaceCons();
+
+    while (ui->WindowsOpen()) {
+        ui->ShowGrid(&grille);
+        grille.Evoluer();  // Exemple
+    }
+
+    delete ui;
+    return 0;
+}

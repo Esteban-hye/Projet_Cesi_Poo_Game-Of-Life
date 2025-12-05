@@ -1,20 +1,50 @@
-all: main
- 
+# --- Compilateur & Options ---
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Iheaders
-LIBS = -lsfml-graphics -lsfml-window -lsfml-system
- 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print | sed -e 's/ /\\ /g')
-HEADERS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.hpp' -print)
- 
-main: $(SRCS) $(HEADERS)
-    $(CXX) $(CXXFLAGS) $(SRCS) -o "$@" $(LIBS)
- 
-main-debug: $(SRCS) $(HEADERS)
-    $(CXX) $(CXXFLAGS) -U_FORTIFY_SOURCE -O0 $(SRCS) -o "$@" $(LIBS)
- 
+
+# --- Librairies SFML ---
+SFML = -lsfml-graphics -lsfml-window -lsfml-system
+
+# --- Fichiers sources communs ---
+SRCS_COMMON = \
+    src/main.cpp \
+    src/Grille.cpp \
+    src/Cellule.cpp \
+    src/CelluleVivante.cpp \
+    src/CelluleMorte.cpp \
+    src/CelluleObstacle.cpp
+
+# --- Interface graphique (SFML) ---
+SRCS_SFML = \
+    src/InterfaceSFML.cpp
+
+# --- Interface console ---
+SRCS_CONSOLE = \
+    src/InterfaceConsole.cpp
+
+# --- Exécutables ---
+BIN_SFML = game
+BIN_CONSOLE = game_console
+
+# --- Cible par défaut : SFML ---
+all: $(BIN_SFML)
+
+# --- Compilation SFML ---
+$(BIN_SFML): $(SRCS_COMMON) $(SRCS_SFML)
+	$(CXX) $(CXXFLAGS) $(SRCS_COMMON) $(SRCS_SFML) -o $@ $(SFML)
+
+# --- Compilation mode console ---
+console: $(BIN_CONSOLE)
+
+$(BIN_CONSOLE): $(SRCS_COMMON) $(SRCS_CONSOLE)
+	$(CXX) $(CXXFLAGS) $(SRCS_COMMON) $(SRCS_CONSOLE) -o $@
+
+# --- Mode debug ---
+debug:
+	$(CXX) $(CXXFLAGS) -O0 -g $(SRCS_COMMON) $(SRCS_SFML) -o game_debug $(SFML)
+
+# --- Nettoyage ---
 clean:
-    rm -f main main-debug
- 
-.PHONY: all clean
- 
+	rm -f $(BIN_SFML) $(BIN_CONSOLE) game_debug
+
+.PHONY: all console debug clean

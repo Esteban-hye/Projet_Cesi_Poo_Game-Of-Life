@@ -1,20 +1,15 @@
-#ifndef Interface_hpp
-#define Interface_hpp
+#ifndef INTERFACE_HPP
+#define INTERFACE_HPP
 
-#include <SFML/Graphics.hpp>
 #include "Grille.hpp"
 
 class Interface {
-private:
-    sf::RenderWindow window;  
-    int cellSize;
-
 public:
-    Interface (int l, int h, int cellSize = 10);
+    virtual ~Interface() = default;
 
-    void ShowGrid(Grille* grille);
-    bool WindowsOpen();
-
+    // Méthodes abstraites
+    virtual void ShowGrid(Grille* grille) = 0;
+    virtual bool WindowsOpen() = 0;
 };
 
 #endif
