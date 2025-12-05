@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Regle.hpp"
 class Cellule {
     protected :
     bool vivant;
