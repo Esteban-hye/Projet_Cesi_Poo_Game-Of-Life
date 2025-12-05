@@ -23,7 +23,6 @@ void Interface::ShowGrid(Grille* grille) {
     for (int x = 0; x < grille->getLargeur(); ++x) {
         for (int y = 0; y < grille->getHauteur(); ++y) {
 
-            // CORRECTION IMPORTANTE
             if (grille->getCellule(x, y)->EstVivant()) {
                 cell.setPosition(x * cellSize, y * cellSize);
                 window.draw(cell);
@@ -33,3 +32,4 @@ void Interface::ShowGrid(Grille* grille) {
 
     window.display();
 }
+

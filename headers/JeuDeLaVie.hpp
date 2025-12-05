@@ -13,8 +13,8 @@ class JeuDeLaVie{
 
     public :
 
-    JeuDeLaVie(const std::string& fichier, bool mode);
-    ~JeuDeLavie();
+    JeuDeLaVie(const std::string& fichier, bool Mode);
+    ~JeuDeLaVie();
     void Init();
     void ExeConsole();
     void ExeGraphique();

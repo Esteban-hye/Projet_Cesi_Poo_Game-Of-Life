@@ -6,7 +6,7 @@
 
 class Grille {
     private :
-    Cellule** cellules
+    Cellule** cellules;
     int largeur;
     int longeur;
     std::list<Cellule*> ListeCVivant;
