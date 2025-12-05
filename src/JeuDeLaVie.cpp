@@ -53,18 +53,20 @@ void JeuDeLaVie::ExeConsole()
 }
 
 
-void JeuDeLaVie::ExeGraphique()
-{
+void JeuDeLaVie::ExeGraphique() {
     Init();
 
-    interface->OuvrirFenetre();
+    interface->WindowsOpen();
 
-    while (interface->FenetreOuverte())
-    {
-        interface->AfficherGraphique(*grille);
-        grille->MettreAJour();
-    }
-}
+     while (interface->WindowsOpen()) {
+
+        interface->ShowGrid(grille);
+
+        grille->Update();
+
+        sf::sleep(sf::milliseconds(100));
+} }
+
 
 
 void JeuDeLaVie::ChargerFichier()
@@ -121,4 +123,6 @@ void JeuDeLaVie::SaveFichier()
 
     out.close();
 }
+
+
 

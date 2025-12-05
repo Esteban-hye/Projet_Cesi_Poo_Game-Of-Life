@@ -1,6 +1,6 @@
 #include "../headers/regleClassic.hpp"
 
-bool RegleClassic::CalculerNouvelEtat(int voisinsVivants, bool etat){
+bool RegleClassic::CalculateNewState(int voisinsVivants, bool etat){
     if (etatActuel){
         return(voisinsVivants == 2 && voisinsVivants ==3);
     }

@@ -29,6 +29,4 @@ class Grille {
     void AddCvivant(Cellule* cellule);
     void SuppCmort(cellule* cellule);
 
-
-
 };
