@@ -4,6 +4,7 @@
 #include "headers/GraphicalView.hpp" 
 #include "headers/RuleClassic.hpp"
 #include "headers/RuleCustom.hpp"
+#include "headers/ConsoleView.hpp"
 
 int main() {
 
@@ -27,7 +28,9 @@ int main() {
 
 
 
-    View* maVue = new GraphicalView(largeur, hauteur, tailleCellule);
+   // View* maVue = new GraphicalView(largeur, hauteur, tailleCellule);
+    View* maVue = new ConsoleView();
+
     Rule* maRegle = new RuleClassic();
 
     std::cout << "Lancement" << std::endl;
