@@ -8,18 +8,18 @@
 
 GameOfLife::GameOfLife(const std::string& filename, View* view, Rule* rule): view(view),activeRule(rule) {
     
-    currentGrid= file::LoadGrid(filename);
+    currentGrid= file::LoadGrid(filename); //charge la grille depuis un fichier
     width =currentGrid->GetWidth();
     height =currentGrid->GetHeight();
-    nextGrid =new Grid(width, height);
+    nextGrid =new Grid(width, height); //crée une nouvelle grille vide de la même taille
 }
 
 GameOfLife::~GameOfLife() {
-    delete currentGrid;
-    delete nextGrid;
+    delete currentGrid; //supprime la grille actuelle
+    delete nextGrid; //supprime la nouvelle grille
 }
 
-void GameOfLife::NextGen() {
+void GameOfLife::NextGen() { //méthode pour passer à la génération suivante
     for (int x= 0; x < width;++x) {
         for (int y= 0; y < height;++y) {
             Cell* currentCell = currentGrid->GetCell(x, y);
@@ -33,10 +33,10 @@ void GameOfLife::NextGen() {
             }
         }
     }
-    std::swap(currentGrid, nextGrid);
+    std::swap(currentGrid, nextGrid); //La grille suivante devient la grille actuelle
 }
 
-void GameOfLife::Run() {
+void GameOfLife::Run() { //lance le jeu, et la fenetre d affichage avec la grille actuelle
     while (true) {
         view->Render(*currentGrid);
         NextGen();
