@@ -42,3 +42,7 @@ void GameOfLife::Run() { //lance le jeu, et la fenetre d affichage avec la grill
         NextGen();
     }
 }
+
+void GameOfLife::Save(const std::string& filename) {
+    file::SaveGrid(filename, *currentGrid);
+}

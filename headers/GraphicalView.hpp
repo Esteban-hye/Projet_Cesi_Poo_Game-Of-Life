@@ -4,11 +4,11 @@
 
 class GraphicalView : public View {
 private:
-    sf::RenderWindow* window; //fenetre SML
-    float cellSize; //Taille d une cellule
+    sf::RenderWindow* window;
+    float cellSize;
 
 public:
-    GraphicalView(int width,int height,float cellSize =10.0f); //constructeur 
-    virtual ~GraphicalView(); //destructeur
-    void Render(const Grid& grid) override; //methode pour afficher la grille
+    GraphicalView(int width,int height,float cellSize =10.0f);
+    virtual ~GraphicalView();
+    void Render(const Grid& grid) override;
 };
