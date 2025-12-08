@@ -14,8 +14,8 @@ private:
     int width, height;
 
 public:
-    GameOfLife(const std::string& filename, View* view, Rule* rule);
-    ~GameOfLife();
-    void NextGen();
-    void Run();
+    GameOfLife(const std::string& filename, View* view, Rule* rule); //constructeur du jeu
+    ~GameOfLife();//destructeur du jeu
+    void NextGen();//méthode pour passer à la génération suivante
+    void Run(); //méthode pour lancer le jeu
 };

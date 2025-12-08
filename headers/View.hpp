@@ -6,6 +6,6 @@
 class View {
 public:
 
-    virtual ~View() = default;
-    virtual void Render(const Grid& grid)= 0;
+    virtual ~View() = default; //destructeur par défaut
+    virtual void Render(const Grid& grid)= 0; //methode pour afficher la grille
 };

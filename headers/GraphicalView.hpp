@@ -8,7 +8,7 @@ private:
     float cellSize; //Taille d une cellule
 
 public:
-    GraphicalView(int width,int height,float cellSize =10.0f);
-    virtual ~GraphicalView();
-    void Render(const Grid& grid) override;
+    GraphicalView(int width,int height,float cellSize =10.0f); //constructeur 
+    virtual ~GraphicalView(); //destructeur
+    void Render(const Grid& grid) override; //methode pour afficher la grille
 };

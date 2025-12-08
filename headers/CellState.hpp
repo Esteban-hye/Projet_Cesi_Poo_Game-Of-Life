@@ -9,8 +9,8 @@
 class CellState{
     public : 
     virtual bool IsAlive() const= 0; // verifie si l etat est une cellule vivante
-    virtual CellState* NextState(int AliveNeigbors, const Rule* rule) = 0; //Calcule letat suivant selon les regles 
-    virtual ~CellState()= default;
-    virtual bool IsObstacle() const =0;
+    virtual CellState* NextState(int AliveNeigbors, const Rule* rule) = 0; //Calcule l'etat suivant selon les regles 
+    virtual ~CellState()= default; // Le destructeur de la classe, permet de liberer la memoire
+    virtual bool IsObstacle() const =0; //Vérifie si c'est un obstacle
     
 };
