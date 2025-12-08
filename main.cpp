@@ -7,7 +7,7 @@
 
 int main() {
 
-    // pour la taille de la fenetre
+    // Pour la taille de la fenetre
     int hauteur; 
     int largeur;
     std::ifstream fichier("Grille.txt") ;
