@@ -18,4 +18,5 @@ public:
     ~GameOfLife();
     void NextGen();
     void Run();
+    void Save(const std::string& filename);
 };

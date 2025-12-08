@@ -42,3 +42,7 @@ void GameOfLife::Run() {
         NextGen();
     }
 }
+
+void GameOfLife::Save(const std::string& filename) {
+    file::SaveGrid(filename, *currentGrid);
+}

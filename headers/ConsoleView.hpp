@@ -1,11 +1,12 @@
 #pragma once
 #include "View.hpp"
-#include "Grid.hpp"
 
-class ConsoleView : public View {
+// ERREUR ICI AVANT : class GraphicalView : public View
+class ConsoleView : public View { 
 public:
-    ConsoleView(); 
+    ConsoleView(); // Constructeur vide
     virtual ~ConsoleView();
 
     virtual void Render(const Grid& grid) override;
+    virtual bool IsOpen() const override;
 };

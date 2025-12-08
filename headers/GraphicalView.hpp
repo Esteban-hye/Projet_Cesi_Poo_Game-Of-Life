@@ -4,11 +4,16 @@
 
 class GraphicalView : public View {
 private:
-    sf::RenderWindow* window; //fenetre SML
-    float cellSize; //Taille d une cellule
+    sf::RenderWindow* window;
+    float cellSize;
 
 public:
-    GraphicalView(int width,int height,float cellSize =10.0f);
+    GraphicalView(int width, int height, float cellSize);
     virtual ~GraphicalView();
-    void Render(const Grid& grid) override;
+
+    virtual void Render(const Grid& grid) override;
+
+    // --- CETTE LIGNE EST OBLIGATOIRE ---
+    virtual bool IsOpen() const override;
+    // -----------------------------------
 };
